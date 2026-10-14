@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>𝑫𝑰𝑵𝑬𝑻𝑯_𝑴𝑫 SESSIONS</title>
+<link rel="icon" href="https://files.catbox.moe/20uiui.png">
+<style>
+:root{--p:#4f46e5;--p2:#4338ca;--bg1:#e6e8fb;--bg2:#fbeef6;--card:#fff;--text:#1f2937;--muted:#6b7280;--soft:#eef0ff;--line:#e5e7eb}
+@media (prefers-color-scheme:dark){:root{--bg1:#12122a;--bg2:#1d1230;--card:#1b1b34;--text:#f3f4f6;--muted:#9ca3af;--soft:#26264a;--line:#33335c}}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%}
+body{font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:linear-gradient(135deg,var(--bg1),var(--bg2));color:var(--text);display:flex;align-items:center;justify-content:center;padding:20px;min-height:100vh}
+.card{background:var(--card);width:100%;max-width:460px;border-radius:28px;padding:28px 22px;box-shadow:0 20px 50px rgba(79,70,229,.15);text-align:center}
+.logo{width:76px;height:76px;border-radius:50%;object-fit:cover;background:var(--p);box-shadow:0 8px 20px rgba(79,70,229,.35)}
+h1{font-size:1.45rem;margin:14px 0 4px;word-break:break-word;line-height:1.25}
+.sub{color:var(--muted);margin:0 0 14px}
+.social{display:flex;justify-content:center;gap:12px;margin-bottom:20px}
+.social a{width:48px;height:48px;border-radius:50%;background:var(--p);display:flex;align-items:center;justify-content:center}
+.social svg{width:24px;height:24px;fill:#fff}
+.tabs{display:flex;border:1px solid var(--line);border-radius:14px;overflow:hidden;background:var(--soft);margin-bottom:18px}
+.tabs button{flex:1;padding:13px;border:0;background:transparent;color:var(--text);font-size:1rem;font-weight:600;cursor:pointer}
+.tabs button.on{background:var(--p);color:#fff}
+label{display:block;text-align:left;margin-bottom:8px;font-size:.95rem}
+input{width:100%;padding:15px;border-radius:14px;border:2px solid var(--text);background:transparent;color:var(--text);font-size:1.05rem;outline:none}
+input:focus{border-color:var(--p)}
+.btn{width:100%;margin-top:14px;padding:15px;border:0;border-radius:14px;background:var(--p);color:#fff;font-size:1.05rem;font-weight:700;cursor:pointer}
+.btn:disabled{opacity:.6;cursor:wait}
+.btn:active{background:var(--p2)}
+.out{margin-top:14px;border:1px solid var(--line);border-radius:14px;padding:18px;background:var(--soft);min-height:62px;font-weight:600;word-break:break-all}
+.code{font-size:1.9rem;letter-spacing:4px;color:var(--p)}
+.hint{color:var(--muted);font-size:.85rem;font-weight:400;margin-top:8px;word-break:normal}
+.sess{font-size:.78rem;font-weight:400;text-align:left;max-height:110px;overflow:auto;user-select:all}
+.copy{width:100%;margin-top:12px;padding:14px;border:1px solid var(--line);border-radius:14px;background:var(--soft);color:var(--text);font-size:1rem;font-weight:700;cursor:pointer}
+.err{color:#dc2626}
+.ok{color:#16a34a}
+img.qr{width:230px;height:230px;border-radius:10px;background:#fff;padding:6px}
+.foot{color:var(--muted);font-size:.85rem;margin-top:20px}
+.hide{display:none}
+</style>
+</head>
+<body>
+<div class="card">
+  <img class="logo" src="https://files.catbox.moe/20uiui.png" alt="logo">
+  <h1>𝑫𝑰𝑵𝑬𝑻𝑯_𝑴𝑫_𝑴𝑰𝑵𝑰_𝑩𝑶𝑻 SESSIONS</h1>
+  <p class="sub">Get in touch with me on:</p>
+  <div class="social">
+    <a href="https://wa.me/94761539856" target="_blank" rel="noopener" aria-label="WhatsApp">
+      <svg viewBox="0 0 24 24"><path d="M12.04 2a9.9 9.9 0 0 0-8.4 15.1L2 22l5.05-1.6A9.9 9.9 0 1 0 12.04 2zm5.8 14.1c-.25.7-1.45 1.35-2 1.4-.5.05-1.15.07-1.85-.12a16 16 0 0 1-3.65-1.65 12.4 12.4 0 0 1-4.1-4.6c-.4-.75-.9-1.95.1-3.1.35-.4.85-.5 1.1-.5h.8c.25 0 .6-.1.9.7.35.85 1.2 2.95 1.3 3.15.1.2.15.4 0 .65-.1.25-.2.4-.4.6s-.4.45-.55.6c-.2.2-.4.4-.2.8.2.4 1 1.65 2.15 2.7 1.5 1.3 2.7 1.7 3.1 1.9.4.2.65.15.9-.1.25-.3 1.05-1.2 1.35-1.6.25-.4.55-.35.9-.2.4.15 2.4 1.15 2.8 1.35.4.2.7.3.8.45.1.2.1 1-.2 1.65z"/></svg>
+    </a>
+  </div>
+
+  <div class="tabs">
+    <button id="tPair" class="on">🔑 Pair Code</button>
+    <button id="tQr">▦ QR Code</button>
+  </div>
+
+  <div id="pairBox">
+    <label for="num">Enter your WhatsApp number with country code</label>
+    <input id="num" type="tel" inputmode="numeric" placeholder="+94771234567" autocomplete="off">
+    <button class="btn" id="goPair">🔑 Generate Pair Code</button>
+  </div>
+  <div id="qrBox" class="hide">
+    <button class="btn" id="goQr" style="margin-top:0">▦ Generate QR Code</button>
+  </div>
+
+  <div class="out" id="out">Your pair code will appear here</div>
+  <button class="copy" id="copy">📋 Copy Code</button>
+  <div class="foot">© All Rights Reserved | 2026 Dineth</div>
+</div>
+
+<script>
+const $ = id => document.getElementById(id)
+let mode = 'pair', timer = null, current = ''
+const idle = () => mode === 'pair' ? 'Your pair code will appear here' : 'Your QR code will appear here'
+
+function setTab(m){
+  mode = m; stop()
+  $('tPair').classList.toggle('on', m==='pair'); $('tQr').classList.toggle('on', m==='qr')
+  $('pairBox').classList.toggle('hide', m!=='pair'); $('qrBox').classList.toggle('hide', m!=='qr')
+  $('out').textContent = idle(); current = ''
+  $('copy').textContent = m==='pair' ? '📋 Copy Code' : '📋 Copy Session ID'
+}
+$('tPair').onclick = () => setTab('pair'); $('tQr').onclick = () => setTab('qr')
+function stop(){ if(timer){clearInterval(timer);timer=null} $('goPair').disabled=false; $('goQr').disabled=false }
+function showErr(m){ $('out').innerHTML = '<span class="err"></span>'; $('out').firstChild.textContent = m; stop() }
+
+function showSession(s){
+  stop(); current = s
+  $('out').innerHTML = '<div class="ok">✅ Connected! Your SESSION ID:</div><div class="sess"></div><div class="hint">Also sent to your WhatsApp chat. Never share it with anyone.</div>'
+  $('out').querySelector('.sess').textContent = s
+  $('copy').textContent = '📋 Copy Session ID'
+}
+
+function poll(id){
+  let tries = 0
+  timer = setInterval(async () => {
+    if (++tries > 100) return showErr('Time expired. Please try again.')
+    try{
+      const r = await fetch('/api/status/' + id); const d = await r.json()
+      if (d.status === 'connected' && d.session) return showSession(d.session)
+      if (d.status === 'failed') return showErr(d.error || 'Failed. Please try again.')
+      if (d.status === 'expired') return showErr('Session expired. Please try again.')
+      if (mode === 'qr' && d.qr) { $('out').innerHTML = '<img class="qr" alt="QR"><div class="hint">WhatsApp → Linked Devices → Link a device → scan</div>'; $('out').querySelector('img').src = d.qr }
+    }catch(e){}
+  }, 2000)
+}
+
+$('goPair').onclick = async () => {
+  const number = $('num').value.replace(/[^0-9]/g,'')
+  if (number.length < 8) return showErr('Enter a valid number with country code.')
+  stop(); $('goPair').disabled = true; $('out').textContent = 'Generating...'
+  try{
+    const r = await fetch('/api/pair', {method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({number})})
+    const d = await r.json(); if(!r.ok) return showErr(d.error || 'Error')
+    current = d.code
+    $('out').innerHTML = '<div class="code"></div><div class="hint">WhatsApp → Linked Devices → Link a device → Link with phone number instead → enter this code</div>'
+    $('out').querySelector('.code').textContent = d.code
+    $('copy').textContent = '📋 Copy Code'
+    poll(d.id)
+  }catch(e){ showErr('Network error. Please try again.') }
+}
+$('goQr').onclick = async () => {
+  stop(); $('goQr').disabled = true; $('out').textContent = 'Generating QR...'
+  try{
+    const r = await fetch('/api/qr', {method:'POST'}); const d = await r.json()
+    if(!r.ok) return showErr(d.error || 'Error')
+    poll(d.id)
+  }catch(e){ showErr('Network error. Please try again.') }
+}
+$('copy').onclick = async () => {
+  if(!current) return
+  try{ await navigator.clipboard.writeText(current) }catch(e){
+    const t=document.createElement('textarea'); t.value=current; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove()
+  }
+  const old=$('copy').textContent; $('copy').textContent='✅ Copied!'; setTimeout(()=>$('copy').textContent=old,1500)
+}
+</script>
+</body>
+</html>
